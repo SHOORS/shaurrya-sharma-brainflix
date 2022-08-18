@@ -1,0 +1,27 @@
+.search {
+    display: flex;
+    padding: 1rem;
+    &__bar {
+        background-image: url('../../assets/images/icons/search.svg');
+        background-repeat: no-repeat;
+        background-position-x: 0.5rem;
+        background-position-y: center;
+        height: 2.25rem;
+        min-width: 15rem;
+        width: 100%;
+        
+        padding: 0 0 0 2.25rem;
+        border-radius: 4px;
+        &:active {
+            border-color: #0095FF;
+        }        
+    }
+    &__image {
+        border-radius: 50%;
+        width: 2.25rem;
+        height: 2.25rem;
+        object-position: center;
+        object-fit:cover;
+        margin-left: 1rem;
+    }
+}

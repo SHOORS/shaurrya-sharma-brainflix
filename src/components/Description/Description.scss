@@ -1,0 +1,44 @@
+.description {
+    padding: 1rem 1rem 0 1rem;
+    &__title {
+        padding-bottom: 1rem;
+
+    }
+    &__info {
+        border-top: solid 1px #E1E1E1;
+        border-bottom: solid 1px #E1E1E1;
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 0;
+    }
+    &__info-left {
+        width: 50%;
+
+    }
+    &__info-right {
+        width: 50%;
+
+    }
+    &__author {
+        padding-bottom: 1rem;
+
+    }
+    &__date {
+
+    }
+    &__views {
+        padding-bottom: 1rem;
+        &::before {
+            content: url(../../assets/images/icons/views.svg);
+        }
+
+    }
+    &__likes {
+        &::before {
+            content: url(../../assets/images/icons/likes.svg);
+        }
+    }
+    &__paragraph {
+        padding: 1rem 0;
+    }
+}

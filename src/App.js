@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss'
+import Comments from './components/Comments/Comments';
+import Description from './components/Description/Description';
+
+
+import Header from "./components/Header/Header";
+import Search from "./components/Search/Search";
+import Upload from './components/Upload/Upload';
+import Video from './components/Video/Video';
+
+import joemama from './data/videos.json'
+import joepapa from './data/video-details.json'
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <Search/>
+      <Upload/>
+      <Video/>
+      <Description/>
+      <Comments/>
     </div>
   );
 }
 
 export default App;
+
+
+
+console.log((joemama[0].title), (joepapa))
