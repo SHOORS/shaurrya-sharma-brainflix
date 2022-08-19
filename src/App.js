@@ -19,7 +19,7 @@ function App() {
 
   // let currentVideoId = 1;
 
-  const [currentVideoId, setCurrentVideo] = useState(0);
+  const [currentVideoId, setCurrentVideo] = useState(videoDetailsData[0].id);
 
   return (
     <div className="App">

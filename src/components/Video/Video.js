@@ -5,9 +5,12 @@ import { useState } from "react";
 //import arrow from '../../assets/images/icons/upload.svg'
 
 function Video(props) {
+  
+  let currentVideo = props.videoDetailsData.find(video => video.id === props.currentVideoId);
+
     return (
       <div className="video">
-        <video poster = {props.videoDetailsData[props.currentVideoId].image} className="video__player"/>
+        <video poster = {currentVideo.image} className="video__player"/>
         
       </div>
     );
