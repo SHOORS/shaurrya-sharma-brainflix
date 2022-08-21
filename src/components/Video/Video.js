@@ -1,8 +1,6 @@
 import './Video.scss';
 
-import { useState } from "react";
 
-//import arrow from '../../assets/images/icons/upload.svg'
 
 function Video(props) {
   

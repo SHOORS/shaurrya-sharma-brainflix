@@ -6,7 +6,11 @@
     @include tablet {
         padding: 1.5rem 2.25rem 0.5rem;
     }
+    @include desktop {
+        padding-right: 0;
+    }
     &__title {
+        color: $primary-color1;
         @include phone-page-heading;   
         padding-bottom: 1rem;
         @include tablet {
@@ -24,6 +28,9 @@
             border-top: none;
             flex-direction: row;
             padding: 0.5rem 0;
+        }
+        @include desktop {
+            padding-right: 1.5rem;
         }
     }
     &__info-left {
@@ -47,6 +54,7 @@
 
     }
     &__author {
+        color: $primary-color1;
         padding-bottom: 1rem;
         @include phone-sub-heading;
         @include tablet {
@@ -93,6 +101,9 @@
         padding: 1rem 0;
         @include tablet {
             padding-bottom: 1.5rem;
+        }
+        @include desktop {
+            padding-right: 1.5rem;
         }
     }
 }

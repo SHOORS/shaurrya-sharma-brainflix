@@ -1,7 +1,17 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
 .video {
     display: flex;
     justify-content: center;    
     background-size: cover;
-    height: 56.25vw;
-    background-color: black;    
-}
+    height: 56.25vw;//this creates a 16:9 aspect ratio for the video player.
+    background-color: black;
+    overflow: hidden;
+    @include tablet {
+        height: 50vw;// contrary to style guide, mockup shows 16:9 aspect ratio changing to arbitrarily narrower on tablet
+    }
+    @include desktop {
+        height:39.5vw;// contrary to style guide, mockup shows 16:9 aspect ratio changing to even narrower on desktop
+    }
+}         

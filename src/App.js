@@ -34,19 +34,25 @@ function App() {
         currentVideoId = {currentVideoId}
         videoDetailsData = {videoDetailsData}
       />
-      <Description
-        currentVideoId = {currentVideoId}
-        videoDetailsData = {videoDetailsData}
-      />
-      <Comments
-        currentVideoId = {currentVideoId}
-        videoDetailsData = {videoDetailsData}
-        />
-      <NextVideos
-        currentVideoId = {currentVideoId}
-        videosData = {videosData}
-        setCurrentVideo = {setCurrentVideo}
-      />
+      <div className="desktop-split">
+        <div className="desktop-split__left">
+          <Description
+            currentVideoId = {currentVideoId}
+            videoDetailsData = {videoDetailsData}
+          />
+          <Comments
+            currentVideoId = {currentVideoId}
+            videoDetailsData = {videoDetailsData}
+            />
+        </div>
+        <div className="desktop-split__right">  
+          <NextVideos
+            currentVideoId = {currentVideoId}
+            videosData = {videosData}
+            setCurrentVideo = {setCurrentVideo}
+          />
+        </div>
+      </div>
     </div>
   );
 }

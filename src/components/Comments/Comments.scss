@@ -6,6 +6,10 @@
     @include tablet {
         padding: 0 2.25rem 0;
     }
+    @include desktop {
+        padding-right: 0;
+        padding-top: 2rem;
+    }
     
     &__number {
         @include phone-sub-heading;
@@ -18,6 +22,9 @@
             align-items: flex-end;
             padding-bottom: 1.5rem;
         }
+        @include desktop {
+            border-bottom: none;
+        }
     }
     &__form-left {
         display: flex;
@@ -29,11 +36,16 @@
         @include tablet {
             flex-direction: row;
             align-items: flex-end;
+            width: 100%;
+        }
+        @include desktop {
+            padding-right: 1.5rem;
         }
     }
     &__input {
         display: flex;
         flex-direction: column;
+        width: 100%;
         @include tablet {
             margin: 0 1.5rem;
         }
@@ -51,10 +63,10 @@
            color: $secondary-color1;
         }
         @include tablet {
-            height: 2.5rem;            
-            min-width: 27.5rem;
-            
+            height: 2.5rem; 
+            width: 100%;            
         }
+       
     }
     &__button {
         @include phone-labels-and-buttons;
@@ -74,10 +86,11 @@
             background-color: #0065AD;
         }
         @include tablet {
-            width: 9.375rem;
+            min-width: 9.375rem;
+            max-width: 11.375rem;
             align-self: flex-end;
             margin: 0;
-            
+            padding: 0 2rem;            
         }
     }
 
@@ -99,6 +112,7 @@
     }
     &__label {
         @include phone-sub-heading;
+        font-weight: 400;//weight has been changed from style guide to match the mockup more closely
         color: $primary-color3;
         padding-bottom: 0.25rem;
     }
@@ -108,6 +122,14 @@
         border-bottom: solid 1px $secondary-color3;
         @include tablet {
             padding: 1.5rem 0;
+        }
+        @include desktop {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-right: 1.5rem;
+            border-top: solid 1px $secondary-color3;
+            border-bottom: none;
+
         }
     }
     &__postedimage {
@@ -129,15 +151,17 @@
         }
     }
     &__item-name {
-        @include phone-sub-heading;
+        color: $primary-color1;
+        @include phone-sub-heading; //too bold, to match the mockup it would require an imported "demi" font that has not been provided
     }
-    &__item-date {
+    &__item-date {        
         @include phone-body-copy;
         color: $primary-color3;
         text-align: right;
         align-self: flex-end;
     }
     &__item-content {
+        color: $primary-color1;
         @include phone-body-copy;
     }
 }
