@@ -16,7 +16,7 @@ function Comments(props) {
         <h3 className="comments__number">{currentVideo.comments.length} Comments</h3>
         <form className = "comments__form">
             <div className="comments__form-left">
-                <img className ="comments__image"src={mrmohan}/>
+                <img alt="profile picture for mohan muruge" className ="comments__image"src={mrmohan}/>
             </div>
             <div className="comments__form-right">
                 <div className="comments__input">

@@ -6,7 +6,7 @@ function Upload() {
     return (
       <div className="upload">
         <button className='upload__button'>UPLOAD</button>
-        <img src={dude1} className="upload__image" />
+        <img alt="profile picture for mohan muruge" src={dude1} className="upload__image" />
       </div>
     );
   }
