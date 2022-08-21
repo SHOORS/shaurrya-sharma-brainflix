@@ -13,9 +13,6 @@ function Description(props) {
     return date.toLocaleDateString("en-US", {year: "numeric", month: "2-digit", day: "2-digit"});
   }
 
-  // let datefromtimestamp = new Date(props.videoDetailsData[props.currentVideoId].timestamp);
-  // let putdate = datefromtimestamp.toLocaleDateString("en-US", {year: "numeric", month: "2-digit", day: "2-digit"})
-
     return (
       <div className="description">
         <h1 className="description__title">

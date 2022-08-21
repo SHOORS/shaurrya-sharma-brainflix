@@ -7,14 +7,12 @@
     @include tablet {
         padding: 0;
     }
-    &__bar {     
-       
+    &__bar {  
         background-image: url('../../assets/images/icons/search.svg');
         background-repeat: no-repeat;
         background-position-x: 0.5rem;
         background-position-y: center;
-        height: 2.25rem;        
-        // min-width: 7rem;
+        height: 2.25rem; 
         width: 100%;
         background-color: $secondary-color4;        
         padding: 0 0 0 2.25rem;
@@ -28,10 +26,7 @@
         @include tablet {
             height: 2.5rem;
             min-width: 15rem;
-            
         }
-        
-              
     }
     &__image {
         border-radius: 50%;

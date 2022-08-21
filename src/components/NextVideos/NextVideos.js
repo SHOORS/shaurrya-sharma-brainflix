@@ -1,19 +1,14 @@
 import './NextVideos.scss';
 
-// import { useState } from "react";
-
-
 function NextVideos(props) {
 
   const selectVideo = (videoIndex) => {
     props.setCurrentVideo(videoIndex)
   };
 
-  // let currentVideo = props.videosData.find(video => video.id === props.currentVideoId);
-
     return (
       <div className="nextvideo__container">
-        <h4 class="nextvideo__sectiontitle">NEXT VIDEOS</h4>
+        <h4 className="nextvideo__sectiontitle">NEXT VIDEOS</h4>
         {props.videosData.map((thumb) =>
           <div key={thumb.id}
             className={`nextvideo ${props.currentVideoId === thumb.id ? "nextvideo--active" : ""}`}

@@ -1,23 +1,19 @@
 import './App.scss'
 
 import { useState } from "react";
-import Comments from './components/Comments/Comments';
-import Description from './components/Description/Description';
-
-
-import Header from "./components/Header/Header";
-import Search from "./components/Search/Search";
-import Upload from './components/Upload/Upload';
-import Video from './components/Video/Video';
 
 import videosData from './data/videos.json'
 import videoDetailsData from './data/video-details.json'
+
+import Header from "./components/Header/Header";
+import Comments from './components/Comments/Comments';
+import Description from './components/Description/Description';
+import Search from "./components/Search/Search";
+import Upload from './components/Upload/Upload';
+import Video from './components/Video/Video';
 import NextVideos from './components/NextVideos/NextVideos';
 
-
 function App() {
-
-  // let currentVideoId = 1;
 
   const [currentVideoId, setCurrentVideo] = useState(videoDetailsData[0].id);
 
@@ -58,7 +54,3 @@ function App() {
 }
 
 export default App;
-
-console.log(videosData, videoDetailsData)
-
-

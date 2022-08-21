@@ -2,7 +2,6 @@ import './Search.scss';
 
 import dude from '../../assets/images/images/Mohan-muruge.jpg'
 
-
 function Search() {
     return (
       <div className="search">
@@ -11,6 +10,5 @@ function Search() {
       </div>
     );
   }
-
 
 export default Search

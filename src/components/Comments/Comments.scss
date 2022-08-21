@@ -65,8 +65,7 @@
         @include tablet {
             height: 2.5rem; 
             width: 100%;            
-        }
-       
+        }       
     }
     &__button {
         @include phone-labels-and-buttons;
@@ -129,7 +128,6 @@
             padding-right: 1.5rem;
             border-top: solid 1px $secondary-color3;
             border-bottom: none;
-
         }
     }
     &__postedimage {
@@ -152,7 +150,7 @@
     }
     &__item-name {
         color: $primary-color1;
-        @include phone-sub-heading; //too bold, to match the mockup it would require an imported "demi" font that has not been provided
+        @include phone-sub-heading;
     }
     &__item-date {        
         @include phone-body-copy;

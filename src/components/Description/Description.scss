@@ -16,7 +16,6 @@
         @include tablet {
             padding-bottom: 0;
         }
-
     }
     &__info {
         border-top: solid 1px $secondary-color3;
@@ -40,7 +39,6 @@
             flex-direction: row;
             align-items: center;
         }
-
     }
     &__info-right {
         width: 50%;
@@ -50,8 +48,6 @@
             justify-content: right;
             align-items: center;
         }
-        
-
     }
     &__author {
         color: $primary-color1;
@@ -65,7 +61,6 @@
     &__date {
         color: $primary-color3;
         @include phone-body-copy;
-
     }
     &__views {
         display: flex;
@@ -80,8 +75,6 @@
             padding-bottom: 0;     
             align-items: center;   
         }
-        
-
     }
     &__likes {
         display: flex;       
@@ -93,8 +86,7 @@
         }
         @include tablet {
             align-items: center;
-        }
-       
+        }       
     }
     &__paragraph {
         @include phone-body-copy;

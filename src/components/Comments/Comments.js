@@ -2,8 +2,6 @@ import './Comments.scss';
 
 import mrmohan from '../../assets/images/images/Mohan-muruge.jpg'
 
-
-
 function Comments(props) {
 
   const getDate = (timestamp) => {
@@ -22,7 +20,7 @@ function Comments(props) {
             </div>
             <div className="comments__form-right">
                 <div className="comments__input">
-                  <label for="comment" className="comments__label">JOIN THE CONVERSATION</label>
+                  <label htmlFor="comment" className="comments__label">JOIN THE CONVERSATION</label>
                   <textarea id="comment" type="text" className="comments__box" placeholder="Add a new comment"></textarea>
                 </div>  
                 <button className="comments__button">COMMENT</button>
@@ -49,6 +47,5 @@ function Comments(props) {
       </div>
     );
   }
-
 
 export default Comments
