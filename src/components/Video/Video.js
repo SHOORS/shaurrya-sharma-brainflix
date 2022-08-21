@@ -10,7 +10,7 @@ function Video(props) {
 
     return (
       <div className="video">
-        <video poster = {currentVideo.image} className="video__player"/>
+        <video controls poster = {currentVideo.image} className="video__player"/>
         
       </div>
     );

@@ -23,9 +23,13 @@ function App() {
 
   return (
     <div className="App">
-      <Header/>
-      <Search/>
-      <Upload/>
+      <div className="header__container">
+        <Header/>
+        <div className="header__container-right">
+          <Search/>
+          <Upload/>
+        </div>
+      </div>  
       <Video
         currentVideoId = {currentVideoId}
         videoDetailsData = {videoDetailsData}

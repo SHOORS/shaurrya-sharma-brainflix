@@ -21,17 +21,27 @@ function Comments(props) {
                 <img className ="comments__image"src={mrmohan}/>
             </div>
             <div className="comments__form-right">
-                <input type="text"></input>
-                <button>COMMENT</button>
+                <div className="comments__input">
+                  <label for="comment" className="comments__label">JOIN THE CONVERSATION</label>
+                  <textarea id="comment" type="text" className="comments__box" placeholder="Add a new comment"></textarea>
+                </div>  
+                <button className="comments__button">COMMENT</button>
             </div>
         </form>
         <div className="comments__posted">
             <div className="comments__card">
               {currentVideo.comments.map((comment, index) =>
                 <div key={comment.timestamp}  className="comments__item">
-                  <h4>{comment.name}</h4>                  
-                  <span>{getDate(comment.timestamp)}</span>
-                  <p>{comment.comment}</p>
+                  <div className="comments__item-left"> 
+                    <img className="comments__postedimage"/>
+                  </div>
+                  <div className="comments__item-right">
+                    <div className="comments__item-top">
+                      <span className="comments__item-name">{comment.name}</span>                  
+                      <span className="comments__item-date">{getDate(comment.timestamp)}</span>
+                    </div>
+                    <p className="comments__item-content">{comment.comment}</p>
+                  </div>
                 </div>
               )}
             </div>

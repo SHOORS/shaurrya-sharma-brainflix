@@ -1,4 +1,143 @@
-.comments__image {
-    height: 1rem;
-    width: 1rem;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.comments {
+    padding:0 1rem 0;
+    @include tablet {
+        padding: 0 2.25rem 0;
+    }
+    
+    &__number {
+        @include phone-sub-heading;
+        padding-bottom: 1rem;
+    }
+    &__form {
+        display: flex;  
+        border-bottom: solid 1px $secondary-color3;   
+        @include tablet {
+            align-items: flex-end;
+            padding-bottom: 1.5rem;
+        }
+    }
+    &__form-left {
+        display: flex;
+    }
+    &__form-right {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        @include tablet {
+            flex-direction: row;
+            align-items: flex-end;
+        }
+    }
+    &__input {
+        display: flex;
+        flex-direction: column;
+        @include tablet {
+            margin: 0 1.5rem;
+        }
+    }
+    &__box {
+        background-color: $secondary-color4;        
+        border-radius: 4px;
+        border: 1px solid;
+        border-color: $secondary-color3;
+        outline-color: $primary-color2;
+        padding: 0.75rem;
+        height: 6rem;
+        &::placeholder {
+           font-family: "Avenir";    
+           color: $secondary-color1;
+        }
+        @include tablet {
+            height: 2.5rem;            
+            min-width: 27.5rem;
+            
+        }
+    }
+    &__button {
+        @include phone-labels-and-buttons;
+        color: white;
+        background-image: url(../../assets/images/icons/add_comment.svg);
+        background-color: #0095FF;
+        text-align: center;
+        background-repeat: no-repeat;
+        background-position-x: 0.5rem;
+        background-position-y: center;
+        height: 2.5rem;       
+        width: 100%;
+        border: none;
+        border-radius: 4px;
+        margin: 1rem 0;
+        &:hover {
+            background-color: #0065AD;
+        }
+        @include tablet {
+            width: 9.375rem;
+            align-self: flex-end;
+            margin: 0;
+            
+        }
+    }
+
+    &__image {
+        border-radius: 50%;
+        width: 2.25rem;
+        height: 2.25rem;
+        object-position:0;
+        object-fit:cover;
+        margin-right: 1rem;
+        margin-top: 1.375rem;
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            width: 2.5rem;
+            height: 2.5rem;
+            margin: 0;
+        }
+    }
+    &__label {
+        @include phone-sub-heading;
+        color: $primary-color3;
+        padding-bottom: 0.25rem;
+    }
+    &__item {
+        display: flex;
+        padding: 1rem 0;
+        border-bottom: solid 1px $secondary-color3;
+        @include tablet {
+            padding: 1.5rem 0;
+        }
+    }
+    &__postedimage {
+        border-radius: 50%;
+        width: 2.25rem;
+        height: 2.25rem;        
+        margin-right: 1rem;
+        background-color: $secondary-color3;  
+        @include tablet {
+            margin-right: 1.5rem;
+        }      
+    }
+    &__item-top{
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 0.5rem;
+        @include tablet {
+            padding-bottom: 0.25rem;
+        }
+    }
+    &__item-name {
+        @include phone-sub-heading;
+    }
+    &__item-date {
+        @include phone-body-copy;
+        color: $primary-color3;
+        text-align: right;
+        align-self: flex-end;
+    }
+    &__item-content {
+        @include phone-body-copy;
+    }
 }

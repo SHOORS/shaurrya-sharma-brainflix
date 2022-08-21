@@ -1,44 +1,98 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
 .description {
-    padding: 1rem 1rem 0 1rem;
+    padding: 1.5rem 1rem 0 1rem;
+    @include tablet {
+        padding: 1.5rem 2.25rem 0.5rem;
+    }
     &__title {
+        @include phone-page-heading;   
         padding-bottom: 1rem;
+        @include tablet {
+            padding-bottom: 0;
+        }
 
     }
     &__info {
-        border-top: solid 1px #E1E1E1;
-        border-bottom: solid 1px #E1E1E1;
+        border-top: solid 1px $secondary-color3;
+        border-bottom: solid 1px $secondary-color3;
         display: flex;
         justify-content: space-between;
         padding: 1rem 0;
+        @include tablet {
+            border-top: none;
+            flex-direction: row;
+            padding: 0.5rem 0;
+        }
     }
     &__info-left {
         width: 50%;
+        @include tablet {
+            display: flex;            
+            flex-direction: row;
+            align-items: center;
+        }
 
     }
     &__info-right {
         width: 50%;
+        @include tablet {
+            display: flex;            
+            flex-direction: row;
+            justify-content: right;
+            align-items: center;
+        }
+        
 
     }
     &__author {
         padding-bottom: 1rem;
-
+        @include phone-sub-heading;
+        @include tablet {
+            margin-right: 2rem;
+            padding-bottom: 0;        
+        }
     }
     &__date {
+        color: $primary-color3;
+        @include phone-body-copy;
 
     }
     &__views {
+        display: flex;
+        color: $primary-color3;
+        @include phone-body-copy;        
         padding-bottom: 1rem;
-        &::before {
-            content: url(../../assets/images/icons/views.svg);
+        &-icon {
+            margin-right: 0.5rem;
         }
+        @include tablet {
+            margin-right: 2rem;
+            padding-bottom: 0;     
+            align-items: center;   
+        }
+        
 
     }
     &__likes {
-        &::before {
-            content: url(../../assets/images/icons/likes.svg);
+        display: flex;       
+        color: $primary-color3;
+        @include phone-body-copy;
+        &-icon {
+            margin-right: 0.5rem;
+            height: 1rem;
         }
+        @include tablet {
+            align-items: center;
+        }
+       
     }
     &__paragraph {
+        @include phone-body-copy;
         padding: 1rem 0;
+        @include tablet {
+            padding-bottom: 1.5rem;
+        }
     }
 }

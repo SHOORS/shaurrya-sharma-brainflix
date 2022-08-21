@@ -1,0 +1,73 @@
+@use './variables' as *;
+@use './fonts' as *;
+@use './resets' as *;
+
+@mixin tablet {
+    @media (min-width: $breakpoint-tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $breakpoint-desktop) {
+        @content;
+    }
+}
+
+@mixin phone-page-heading {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    font-family: "Avenir", sans-serif;
+    // letter-spacing: 0.0625rem;
+    @include tablet {
+        font-size: 2.063rem;
+        line-height: 2.75rem;        
+    }
+}
+
+@mixin phone-section-heading {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    font-weight: 700;    
+    font-family: "Avenir", sans-serif; 
+    @include tablet {
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+    }   
+}
+
+@mixin phone-sub-heading {
+    font-size: 0.813rem;
+    line-height: 1.125rem;
+    font-weight: 700;
+    font-family: "Avenir", sans-serif;
+    // letter-spacing: 0.03125rem;   
+    @include tablet {
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+    }
+}
+
+@mixin phone-body-copy {
+    font-size: 0.813rem;
+    line-height: 1.125rem;
+    font-weight: 400;
+    font-family: "Avenir", sans-serif;
+    // letter-spacing: 0.015625rem;
+    @include tablet {
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+    }
+}
+
+@mixin phone-labels-and-buttons {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    font-weight: 400; // style guide suggests 700, but I'm matching mock
+    font-family: "Avenir", sans-serif;  
+    @include tablet {
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+    }
+}

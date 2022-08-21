@@ -1,27 +1,47 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
 .search {
     display: flex;
     padding: 1rem;
-    &__bar {
+    @include tablet {
+        padding: 0;
+    }
+    &__bar {     
+       
         background-image: url('../../assets/images/icons/search.svg');
         background-repeat: no-repeat;
         background-position-x: 0.5rem;
         background-position-y: center;
-        height: 2.25rem;
-        min-width: 15rem;
+        height: 2.25rem;        
+        // min-width: 7rem;
         width: 100%;
-        
+        background-color: $secondary-color4;        
         padding: 0 0 0 2.25rem;
         border-radius: 4px;
-        &:active {
-            border-color: #0095FF;
-        }        
+        border: 1px solid;
+        border-color: $secondary-color3;
+        outline-color: $primary-color2;
+        &::placeholder {
+            color: $secondary-color1;
+        }
+        @include tablet {
+            height: 2.5rem;
+            min-width: 15rem;
+            
+        }
+        
+              
     }
     &__image {
         border-radius: 50%;
         width: 2.25rem;
         height: 2.25rem;
-        object-position: center;
+        object-position:0;
         object-fit:cover;
         margin-left: 1rem;
+        @include tablet {
+            display: none;
+        }
     }
 }
