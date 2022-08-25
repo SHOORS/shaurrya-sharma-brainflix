@@ -6,8 +6,8 @@ import axios from 'axios';
 import Header from "./components/Header/Header";
 import Search from "./components/Search/Search";
 import Upload from './components/Upload/Upload';
-import HomePage from './components/HomePage/HomePage';
-import VideoPage from './components/VideoPage/VideoPage';
+import HomePage from './pages/HomePage/HomePage';
+import VideoPage from './pages/VideoPage/VideoPage';
 
 function App() {
 
@@ -63,7 +63,7 @@ function App() {
             <Route path="/:videoId"
               element={
                 <VideoPage
-                  videosData={videosData}
+                  videosData={videosData}                  
                 />
               } 
             />

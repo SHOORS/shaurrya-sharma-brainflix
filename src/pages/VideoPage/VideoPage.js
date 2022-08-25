@@ -1,14 +1,25 @@
-import Video from '../Video/Video';
-import NextVideos from '../NextVideos/NextVideos';
-import Comments from '../Comments/Comments';
-import Description from '../Description/Description';
+import { useState, useEffect} from "react";
+import axios from 'axios';
+
+import Video from '../../components/Video/Video';
+import NextVideos from '../../components/NextVideos/NextVideos';
+import Comments from '../../components/Comments/Comments';
+import Description from '../../components/Description/Description';
 import { useParams } from 'react-router-dom';
 
 function VideoPage(props) {
 
-    const { videoId } = useParams(); // param id
-    const currentVideoId = props.currentVideoId; // TODO: this is incorrect, needs to be changed to use param id
-    const videoDetailsData = props.videoDetailsData; // TODO: this is incorrect, needs to be changed to make a new api call based on param id
+    const [videoDetailsData, setVideoDetailsData] = useState({});
+    const { videoId } = useParams(); 
+    const currentVideoId = videoId; 
+    const videoDetailsURL = `https://project-2-api.herokuapp.com/videos/${videoId}?api_key=9956a51b-0497-4686-b588-e60d5461f863`; 
+    
+    useEffect(() => {        
+        axios.get(videoDetailsURL)
+            .then(response => {
+                setVideoDetailsData(response.data);            
+            })
+    }, [videoId])
 
     return (
         <>
@@ -26,7 +37,7 @@ function VideoPage(props) {
                 </div>
                 <div className="desktop-split__right">
                     <NextVideos
-                        currentVideoId={currentVideoId}
+                        currentVideoId={currentVideoId}                        
                         videosData={props.videosData}                        
                      />
                 </div>

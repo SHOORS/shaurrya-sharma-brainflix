@@ -1,7 +1,7 @@
-import Video from '../Video/Video';
-import NextVideos from '../NextVideos/NextVideos';
-import Comments from '../Comments/Comments';
-import Description from '../Description/Description';
+import Video from '../../components/Video/Video';
+import NextVideos from '../../components/NextVideos/NextVideos';
+import Comments from '../../components/Comments/Comments';
+import Description from '../../components/Description/Description';
 
 function HomePage(props) {
 
