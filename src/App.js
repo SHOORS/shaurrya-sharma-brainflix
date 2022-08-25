@@ -43,33 +43,33 @@ function App() {
     <>
       <div className="App">
         <BrowserRouter>
-        <div className="header__container">
-          <Header/>
-          <div className="header__container-right">
-            <Search/>
-            <Upload/>
-          </div>
-        </div> 
-        <Routes>
-          <Route path="/"
-            element={
-              <HomePage
-                videoDetailsData={defaultVideoDetailsData}
-                currentVideoId={defaultVideoId}
-                videosData={videosData}
-              />
-            } 
-          />
-          <Route path="/:videoId"
-            element={
-              <VideoPage
-                videosData={videosData}
-              />
-            } 
-          />
-        </Routes>  
+          <div className="header__container">
+            <Header/>
+            <div className="header__container-right">
+              <Search/>
+              <Upload/>
+            </div>
+          </div> 
+          <Routes>
+            <Route path="/"
+              element={
+                <HomePage
+                  videoDetailsData={defaultVideoDetailsData}
+                  currentVideoId={defaultVideoId}
+                  videosData={videosData}
+                />
+              } 
+            />
+            <Route path="/:videoId"
+              element={
+                <VideoPage
+                  videosData={videosData}
+                />
+              } 
+            />
+          </Routes>  
         </BrowserRouter>      
-    </div>
+      </div>
     </>
   );
 }
