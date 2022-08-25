@@ -1,4 +1,5 @@
 import './UploadPage.scss';
+import { Navigate } from 'react-router-dom';
 import preview from "../../assets/images/images/Upload-video-preview.jpg"
 
 function UploadPage() {
@@ -25,7 +26,7 @@ function UploadPage() {
                 </form>
             </div>
             <div className="uploadPage__bottom">
-                <button className="uploadPage__publishBtn">PUBLISH</button>
+                <button onClick={(alert("Video Successfully Uploaded!"))} className="uploadPage__publishBtn">PUBLISH</button>
                 <button className="uploadPage__cancelBtn">CANCEL</button>
             </div>
         </div>
