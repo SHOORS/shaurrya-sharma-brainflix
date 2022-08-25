@@ -27,7 +27,7 @@
     }
     &__sectiontitle {
         @include phone-sub-heading; 
-        font-weight: 400; //weight has been changed from style guide to match the mockup more closely
+        // font-weight: 400; //weight has been changed from style guide to match the mockup more closely
         color: $primary-color3;
     }
     &--active {

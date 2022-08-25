@@ -72,7 +72,7 @@ function App() {
               element={
                 <UploadPage/>
               }
-            />
+            />            
           </Routes>  
         </BrowserRouter>      
       </div>

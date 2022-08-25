@@ -1,5 +1,5 @@
 import './UploadPage.scss';
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import preview from "../../assets/images/images/Upload-video-preview.jpg"
 
 function UploadPage() {
@@ -26,7 +26,9 @@ function UploadPage() {
                 </form>
             </div>
             <div className="uploadPage__bottom">
-                <button onClick={(alert("Video Successfully Uploaded!"))} className="uploadPage__publishBtn">PUBLISH</button>
+                <Link to="/">
+                    <button onClick={(()=>alert("Video Successfully Uploaded!"))} className="uploadPage__publishBtn">PUBLISH</button>
+                </Link>
                 <button className="uploadPage__cancelBtn">CANCEL</button>
             </div>
         </div>
@@ -34,3 +36,5 @@ function UploadPage() {
   }
 
 export default UploadPage
+
+//.then(<Navigate to="/"/>)
