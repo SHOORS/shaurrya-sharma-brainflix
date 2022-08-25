@@ -8,12 +8,10 @@ function Comments(props) {
     const date = new Date(timestamp);
     return date.toLocaleDateString("en-US", {year: "numeric", month: "2-digit", day: "2-digit"});
   }
-
-  let currentVideo = props.videoDetailsData.find(video => video.id === props.currentVideoId);
  
     return (
       <div className="comments">
-        <h3 className="comments__number">{currentVideo.comments.length} Comments</h3>
+        <h3 className="comments__number">{props.videoDetailsData.comments?.length} Comments</h3>
         <form className = "comments__form">
             <div className="comments__form-left">
                 <img alt="profile picture for mohan muruge" className ="comments__image"src={mrmohan}/>
@@ -28,7 +26,7 @@ function Comments(props) {
         </form>
         <div className="comments__posted">
             <div className="comments__card">
-              {currentVideo.comments.map((comment, index) =>
+              {props.videoDetailsData.comments?.map((comment, index) =>
                 <div key={comment.timestamp}  className="comments__item">
                   <div className="comments__item-left"> 
                     <img className="comments__postedimage"/>

@@ -1,55 +1,76 @@
 import './App.scss'
-
-import { useState } from "react";
-
-import videosData from './data/videos.json'
-import videoDetailsData from './data/video-details.json'
+import { useState, useEffect} from "react";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import axios from 'axios';
 
 import Header from "./components/Header/Header";
-import Comments from './components/Comments/Comments';
-import Description from './components/Description/Description';
 import Search from "./components/Search/Search";
 import Upload from './components/Upload/Upload';
-import Video from './components/Video/Video';
-import NextVideos from './components/NextVideos/NextVideos';
+import HomePage from './components/HomePage/HomePage';
+import VideoPage from './components/VideoPage/VideoPage';
 
 function App() {
 
-  const [currentVideoId, setCurrentVideo] = useState(videoDetailsData[0].id);
+  const [videosData, setVideosData] = useState([]);
+  const [defaultVideoDetailsData, setDefaultVideoDetailsData] = useState({});
+  const [defaultVideoId, setDefaultVideoId] = useState("");
 
-  return (
-    <div className="App">
-      <div className="header__container">
-        <Header/>
-        <div className="header__container-right">
-          <Search/>
-          <Upload/>
-        </div>
-      </div>  
-      <Video
-        currentVideoId = {currentVideoId}
-        videoDetailsData = {videoDetailsData}
-      />
-      <div className="desktop-split">
-        <div className="desktop-split__left">
-          <Description
-            currentVideoId = {currentVideoId}
-            videoDetailsData = {videoDetailsData}
+
+
+  const videosAPIURL = "https://project-2-api.herokuapp.com/videos?api_key=9956a51b-0497-4686-b588-e60d5461f863"
+  const getVideoDetailsAPIURL = (id) => {
+    return `https://project-2-api.herokuapp.com/videos/${id}?api_key=9956a51b-0497-4686-b588-e60d5461f863`;
+  };
+
+  useEffect(() => {
+    // get video Data
+    axios.get(videosAPIURL)
+      .then(response => {
+        setVideosData(response.data);
+        setDefaultVideoId(response.data[0].id);
+        return response.data[0].id;
+      })
+      .then((defaultId) => {
+        // get video details
+        axios.get(getVideoDetailsAPIURL(defaultId))
+          .then(response => {
+            setDefaultVideoDetailsData(response.data);
+          })
+      })
+  }, [])
+
+  return (  
+    <>
+      <div className="App">
+        <BrowserRouter>
+        <div className="header__container">
+          <Header/>
+          <div className="header__container-right">
+            <Search/>
+            <Upload/>
+          </div>
+        </div> 
+        <Routes>
+          <Route path="/"
+            element={
+              <HomePage
+                videoDetailsData={defaultVideoDetailsData}
+                currentVideoId={defaultVideoId}
+                videosData={videosData}
+              />
+            } 
           />
-          <Comments
-            currentVideoId = {currentVideoId}
-            videoDetailsData = {videoDetailsData}
-            />
-        </div>
-        <div className="desktop-split__right">  
-          <NextVideos
-            currentVideoId = {currentVideoId}
-            videosData = {videosData}
-            setCurrentVideo = {setCurrentVideo}
+          <Route path="/:videoId"
+            element={
+              <VideoPage
+                videosData={videosData}
+              />
+            } 
           />
-        </div>
-      </div>
+        </Routes>  
+        </BrowserRouter>      
     </div>
+    </>
   );
 }
 
