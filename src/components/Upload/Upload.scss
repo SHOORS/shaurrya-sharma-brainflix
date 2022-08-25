@@ -11,9 +11,9 @@
     }
     &__button {
         @include phone-labels-and-buttons;
-        color: white;
+        color: $primary-color4;
         background-image: url(../../assets/images/icons/upload.svg);
-        background-color: #0095FF;
+        background-color: $primary-color2;
         text-align: center;
         background-repeat: no-repeat;
         background-position-x: 0.5rem;
@@ -23,7 +23,7 @@
         border: none;
         border-radius: 4px;
         &:hover {
-            background-color: #0065AD;
+            background-color: $secondary-color2;
         }
         @include tablet {
             width: auto;

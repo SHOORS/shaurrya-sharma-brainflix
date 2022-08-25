@@ -8,6 +8,7 @@ import Search from "./components/Search/Search";
 import Upload from './components/Upload/Upload';
 import HomePage from './pages/HomePage/HomePage';
 import VideoPage from './pages/VideoPage/VideoPage';
+import UploadPage from './pages/UploadPage/UploadPage';
 
 function App() {
 
@@ -66,6 +67,11 @@ function App() {
                   videosData={videosData}                  
                 />
               } 
+            />
+            <Route path="/upload"
+              element={
+                <UploadPage/>
+              }
             />
           </Routes>  
         </BrowserRouter>      
