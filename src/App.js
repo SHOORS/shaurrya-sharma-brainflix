@@ -29,7 +29,7 @@ function App() {
         setDefaultVideoId(response.data[0].id);
         return response.data[0].id;
       })
-      .then((defaultId) => {        
+      .then((defaultId) => {               
         axios.get(getVideoDetailsAPIURL(defaultId))
           .then(response => {
             setDefaultVideoDetailsData(response.data);
