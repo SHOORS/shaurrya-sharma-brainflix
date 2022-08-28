@@ -6,7 +6,6 @@ import axios from 'axios';
 import Header from "./components/Header/Header";
 import Search from "./components/Search/Search";
 import Upload from './components/Upload/Upload';
-import HomePage from './pages/HomePage/HomePage';
 import VideoPage from './pages/VideoPage/VideoPage';
 import UploadPage from './pages/UploadPage/UploadPage';
 
@@ -23,16 +22,14 @@ function App() {
     return `https://project-2-api.herokuapp.com/videos/${id}?api_key=9956a51b-0497-4686-b588-e60d5461f863`;
   };
 
-  useEffect(() => {
-    // get video Data
+  useEffect(() => {    
     axios.get(videosAPIURL)
       .then(response => {
         setVideosData(response.data);
         setDefaultVideoId(response.data[0].id);
         return response.data[0].id;
       })
-      .then((defaultId) => {
-        // get video details
+      .then((defaultId) => {        
         axios.get(getVideoDetailsAPIURL(defaultId))
           .then(response => {
             setDefaultVideoDetailsData(response.data);
@@ -54,7 +51,7 @@ function App() {
           <Routes>
             <Route path="/"
               element={
-                <HomePage
+                <VideoPage
                   videoDetailsData={defaultVideoDetailsData}
                   currentVideoId={defaultVideoId}
                   videosData={videosData}
@@ -72,7 +69,8 @@ function App() {
               element={
                 <UploadPage/>
               }
-            />            
+            />  
+                 
           </Routes>  
         </BrowserRouter>      
       </div>

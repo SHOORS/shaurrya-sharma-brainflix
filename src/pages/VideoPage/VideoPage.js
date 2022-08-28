@@ -1,5 +1,4 @@
 import { useState, useEffect} from "react";
-import { Navigate } from 'react-router-dom';
 import axios from 'axios';
 
 import Video from '../../components/Video/Video';
@@ -11,17 +10,22 @@ import { useParams } from 'react-router-dom';
 function VideoPage(props) {
 
     const [videoDetailsData, setVideoDetailsData] = useState({});
-    const { videoId } = useParams(); 
-    const currentVideoId = videoId; 
+    let { videoId } = useParams();     
+    // const [currentVideoId, setCurrentVideoId]  = useState("");
     const videoDetailsURL = `https://project-2-api.herokuapp.com/videos/${videoId}?api_key=9956a51b-0497-4686-b588-e60d5461f863`; 
     
-    useEffect(() => {        
-        axios.get(videoDetailsURL)
-            .then(response => {
-                setVideoDetailsData(response.data);            
-            })
-    }, [videoId])
-    
+    useEffect(() => {    
+        if (videoId) {              
+            axios.get(videoDetailsURL)
+                .then(response => {
+                    setVideoDetailsData(response.data);            
+                })        
+        } else {            
+            setVideoDetailsData(props.videoDetailsData);            
+            videoId = props.currentVideoId;
+        }
+    }, [videoId, props])
+
     return (
         <>
             <Video            
@@ -38,7 +42,7 @@ function VideoPage(props) {
                 </div>
                 <div className="desktop-split__right">
                     <NextVideos
-                        currentVideoId={currentVideoId}                        
+                        currentVideoId={videoId}                        
                         videosData={props.videosData}                        
                      />
                 </div>

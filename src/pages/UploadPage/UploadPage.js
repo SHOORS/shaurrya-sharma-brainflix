@@ -1,5 +1,5 @@
 import './UploadPage.scss';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import preview from "../../assets/images/images/Upload-video-preview.jpg"
 
 function UploadPage() {
@@ -36,5 +36,3 @@ function UploadPage() {
   }
 
 export default UploadPage
-
-//.then(<Navigate to="/"/>)
