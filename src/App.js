@@ -15,8 +15,6 @@ function App() {
   const [defaultVideoDetailsData, setDefaultVideoDetailsData] = useState({});
   const [defaultVideoId, setDefaultVideoId] = useState("");
 
-
-
   const videosAPIURL = "https://project-2-api.herokuapp.com/videos?api_key=9956a51b-0497-4686-b588-e60d5461f863"
   const getVideoDetailsAPIURL = (id) => {
     return `https://project-2-api.herokuapp.com/videos/${id}?api_key=9956a51b-0497-4686-b588-e60d5461f863`;
@@ -69,8 +67,7 @@ function App() {
               element={
                 <UploadPage/>
               }
-            />  
-                 
+            />                   
           </Routes>  
         </BrowserRouter>      
       </div>

@@ -2,8 +2,6 @@ import './Description.scss';
 import eye from '../../assets/images/icons/views.svg'
 import heart from '../../assets/images/icons/likes.svg'
 
-// import { useState } from "react";
-
 function Description(props) {
   const getDate = (timestamp) => {
     const date = new Date(timestamp);
