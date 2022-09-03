@@ -1,4 +1,5 @@
 import './Comments.scss';
+import uniqid from "uniqid";
 
 import mrmohan from '../../assets/images/images/Mohan-muruge.jpg'
 
@@ -27,7 +28,7 @@ function Comments(props) {
         <div className="comments__posted">
             <div className="comments__card">
               {props.videoDetailsData.comments?.map((comment, index) =>
-                <div key={comment.timestamp}  className="comments__item">
+                <div key={uniqid()}  className="comments__item">
                   <div className="comments__item-left"> 
                     <img className="comments__postedimage"/>
                   </div>

@@ -15,14 +15,15 @@ function App() {
   const [defaultVideoDetailsData, setDefaultVideoDetailsData] = useState({});
   const [defaultVideoId, setDefaultVideoId] = useState("");
 
-  const videosAPIURL = "https://project-2-api.herokuapp.com/videos?api_key=9956a51b-0497-4686-b588-e60d5461f863"
+  const videosAPIURL = "http://localhost:8080/videos"
   const getVideoDetailsAPIURL = (id) => {
-    return `https://project-2-api.herokuapp.com/videos/${id}?api_key=9956a51b-0497-4686-b588-e60d5461f863`;
+    return `http://localhost:8080/videos/${id}`;
   };
 
   useEffect(() => {    
     axios.get(videosAPIURL)
       .then(response => {
+        console.log(response.data)
         setVideosData(response.data);
         setDefaultVideoId(response.data[0].id);
         return response.data[0].id;

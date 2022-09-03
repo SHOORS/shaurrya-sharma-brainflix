@@ -11,7 +11,7 @@ function VideoPage(props) {
 
     const [videoDetailsData, setVideoDetailsData] = useState({});
     let { videoId } = useParams();
-    const videoDetailsURL = `https://project-2-api.herokuapp.com/videos/${videoId}?api_key=9956a51b-0497-4686-b588-e60d5461f863`; 
+    const videoDetailsURL = `http://localhost:8080/videos/${videoId}`; 
     
     useEffect(() => {    
         if (videoId && videoId !== props.currentVideoId) {                         
