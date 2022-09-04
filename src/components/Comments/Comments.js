@@ -15,7 +15,7 @@ function Comments(props) {
         <h3 className="comments__number">{props.videoDetailsData.comments?.length} Comments</h3>
         <form className = "comments__form">
             <div className="comments__form-left">
-                <img alt="profile picture for mohan muruge" className ="comments__image"src={mrmohan}/>
+                <img alt="profile for mohan muruge" className ="comments__image"src={mrmohan}/>
             </div>
             <div className="comments__form-right">
                 <div className="comments__input">
@@ -30,6 +30,7 @@ function Comments(props) {
               {props.videoDetailsData.comments?.map((comment, index) =>
                 <div key={uniqid()}  className="comments__item">
                   <div className="comments__item-left"> 
+                  {/* eslint-disable-next-line jsx-a11y/alt-text*/}
                     <img className="comments__postedimage"/>
                   </div>
                   <div className="comments__item-right">

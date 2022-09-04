@@ -7,7 +7,7 @@ function Header() {
     return (
       <div className="header">
         <Link to="/">
-          <img src={logo} className="header__logo"/>
+          <img alt="brainflix logo" src={logo} className="header__logo"/>
         </Link>
       </div>
     );
