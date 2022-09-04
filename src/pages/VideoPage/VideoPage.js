@@ -1,32 +1,63 @@
 import { useState, useEffect} from "react";
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import Video from '../../components/Video/Video';
 import NextVideos from '../../components/NextVideos/NextVideos';
 import Comments from '../../components/Comments/Comments';
 import Description from '../../components/Description/Description';
-import { useParams } from 'react-router-dom';
 
-function VideoPage(props) {
+function VideoPage() {
 
     const [videoDetailsData, setVideoDetailsData] = useState({});
-    let { videoId } = useParams();
-    const videoDetailsURL = `https://project-2-api.herokuapp.com/videos/${videoId}?api_key=9956a51b-0497-4686-b588-e60d5461f863`; 
+    let params = useParams();
+    const [videoId, setVideoId ] = useState(params.videoId);
+    const [videosData, setVideosData] = useState([]);
+    const [defaultVideoDetailsData, setDefaultVideoDetailsData] = useState({});
+    const [defaultVideoId, setDefaultVideoId] = useState("");
+
+    // API URLs
+    const videosAPIURL = "http://localhost:8080/videos";
+    function getVideoDetailsURL (videoId) {
+        return `http://localhost:8080/videos/${videoId}`;
+    }; 
+
+    useEffect(() => { // setting default video data
+        axios.get(videosAPIURL)
+            .then(response => {
+                setVideosData(response.data);
+                setDefaultVideoId(response.data[0].id);
+                return response.data[0].id;
+            })            
+            .then((defaultId) => {               
+                axios.get(getVideoDetailsURL(defaultId))
+                .then(response => {
+                    setDefaultVideoDetailsData(response.data);
+                })
+                .catch(err => console.error(err));
+            })
+            .catch(err => console.error(err));
+    }, [])
+
     
-    useEffect(() => {    
-        if (videoId && videoId !== props.currentVideoId) {                         
-            axios.get(videoDetailsURL)
-                .then(response => {                    
-                    setVideoDetailsData(response.data);            
-                })        
-        } else {            
-            setVideoDetailsData(props.videoDetailsData);            
-            videoId = props.currentVideoId;
+    useEffect(() => { // swapping between default and new video data
+        setVideoId(params.videoId); 
+        // setting state takes time
+        // therefore we are using params.videoId since its readily available
+        if (!params.videoId || params.videoId === defaultVideoId) { // use default video data
+            setVideoDetailsData(defaultVideoDetailsData);     
+            setVideoId(defaultVideoId);
+        } else { // use new video data
+            axios.get(getVideoDetailsURL(params.videoId))
+                .then(response => {
+                    setVideoDetailsData(response.data);
+                })
+                .catch(err => console.error(err)); 
         }
-    }, [videoId, props])
+    }, [params, defaultVideoId, defaultVideoDetailsData])
 
     return (
-        <>
+        <>        
             <Video            
                 videoDetailsData={videoDetailsData} 
             />
@@ -42,7 +73,7 @@ function VideoPage(props) {
                 <div className="desktop-split__right">
                     <NextVideos
                         currentVideoId={videoId}                        
-                        videosData={props.videosData}                        
+                        videosData={videosData}                        
                      />
                 </div>
             </div>

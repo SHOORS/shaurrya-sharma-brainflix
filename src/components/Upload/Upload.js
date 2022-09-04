@@ -9,7 +9,7 @@ function Upload() {
         <Link to="/upload">
           <button className='upload__button'>UPLOAD</button>
         </Link>  
-        <img alt="profile picture for mohan muruge" src={dude1} className="upload__image" />
+        <img alt="profile for mohan muruge" src={dude1} className="upload__image" />
       </div>
     );
   }

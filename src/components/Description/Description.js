@@ -19,8 +19,8 @@ function Description(props) {
                 <div className="description__date">{getDate(props.videoDetailsData.timestamp)}</div>
             </div>
             <div className="description__info-right">
-                <div className="description__views"><img src={eye} className="description__views-icon"/>{props.videoDetailsData.views}</div>
-                <div className="description__likes"><img src={heart} className="description__likes-icon"/>{props.videoDetailsData.likes}</div>
+                <div className="description__views"><img alt="eye icon" src={eye} className="description__views-icon"/>{props.videoDetailsData.views}</div>
+                <div className="description__likes"><img alt="heart icon" src={heart} className="description__likes-icon"/>{props.videoDetailsData.likes}</div>
             </div>
         </div>
         <p className="description__paragraph">
